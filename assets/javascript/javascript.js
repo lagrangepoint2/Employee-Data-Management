@@ -14,15 +14,12 @@
     var monthWorked;
     var totalBilled;
 
-
 // Get a reference to the database service
     var database = firebase.database();
     // database.ref().on('value', function(snapshot){
 
     database.ref().on('child_added', function(childSnapshot){
         var theChild = childSnapshot.val();
-
-        console.log('theChild:'+theChild);
 
         $('.name').text(childSnapshot.val().name);
 
@@ -31,11 +28,7 @@
         var tempStartDate = childSnapshot.val().startDate;
         var tempmonthRate = childSnapshot.val().monthRate;
 
-        // console.log('tempName: '+tempName);
-        // $('#id-where you want data').html('<tr class>' + tempName);
-        $('#tbody').append('<tr><td>'+tempName+'</td><td>'+tempRole+'</td><td>'+tempStartDate+'<td></td>'+tempmonthRate+'</td></tr>');
-
-
+        $('#tbody').append('<tr><td>'+tempName+'</td><td>'+tempRole+'</td><td>'+tempStartDate+'</td><td>'+monthWorked+'</td><td>'+tempmonthRate+'</td><td>'+totalBilled+'</td></tr>');
 
     });//End database.ref.on
 
@@ -46,11 +39,6 @@
        var role = $('#role-form').val().trim();
        var startDate = $('#start-date-form').val().trim();
        var monthRate = $('#month-rate-form').val().trim();
-
-        // $('.name').text(name);
-        // $('.role').text(role);
-        // $('.startDate').text(startDate);
-        // $('.monthRate').text(monthRate);
 
        database.ref().push({
             name: name,
