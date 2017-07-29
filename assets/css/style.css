@@ -3,7 +3,6 @@ body {
     width: 85%;
     margin: 0 auto;
     padding: 0 auto;
-    margin-bottom: 10px;
 }
 
 .jumbotron {
@@ -16,8 +15,13 @@ td {
 
 th {
     text-align: center;
+    font-weight: bold;
 }
 
 .panel-title {
+    font-weight: bold;
+}
+
+label {
     font-weight: bold;
 }
